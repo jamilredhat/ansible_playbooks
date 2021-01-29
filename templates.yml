@@ -1,0 +1,11 @@
+---
+
+- hosts: ubuntu
+  vars:
+    test_variable: "Hi There"
+  tasks:
+    - name: Copy File
+      template:
+        src: /home/admin/template.j2
+        dest: /home/admin/template_copied_by_ansilbe
+

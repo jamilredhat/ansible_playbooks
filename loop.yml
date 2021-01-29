@@ -1,0 +1,18 @@
+---
+
+- hosts: ubuntu16
+  vars:
+    users:
+      - u1
+      - u2
+      - u3 
+  become: yes
+  tasks:
+    - name: create users
+      ansible.builtin.user: 
+        name: "{{ item }}"
+        state: present
+        groups: admin
+        shell: "/bin/bash"
+      loop: "{{ users }}"
+

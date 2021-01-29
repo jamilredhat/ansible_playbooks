@@ -1,0 +1,17 @@
+---
+ - hosts: ansclient
+   vars:
+           http_port: 80
+   become: yes
+   become_user: root
+   become_method: sudo
+   tasks:
+           - name: install apache
+             apt:
+                     name: apache2
+                     state: latest
+                     update_cache: yes
+           - name: start apache
+             service:
+                     name: apache2
+                     state: restarted

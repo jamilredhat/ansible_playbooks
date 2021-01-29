@@ -1,0 +1,17 @@
+---
+ - hosts: ansclient
+   become: yes
+   become_user: root
+   become_method: sudo
+   tasks:
+           - name: create user
+             user:
+                     name: test1
+                     state: present
+                     groups:
+                             - admin
+                             - test1
+                     shell: '/bin/bash'
+                     createhome: yes
+                     home: /home/test1
+

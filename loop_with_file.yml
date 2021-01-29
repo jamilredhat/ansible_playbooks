@@ -1,0 +1,16 @@
+---
+
+- hosts: ubuntu16
+  vars:
+    files:
+      - "/etc/hosts"
+      - "/etc/fstab"
+      - "/etc/resolv.conf"
+  become: no
+  tasks:
+    - name: display files
+      debug: 
+        msg: "{{ files }}"
+        with_file: {{ files }}
+
+

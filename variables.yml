@@ -1,0 +1,12 @@
+---
+
+ - hosts: ubuntu16
+   vars:
+     - host1: ubuntu16
+     - host2: ubuntu20
+     - host3: centos7
+
+   tasks:
+    - name: echo variables
+      shell: echo "First host is {{host1}} and second host is {{host2}}" >> /home/admin/variables_ouput
+

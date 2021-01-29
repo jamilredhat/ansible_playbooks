@@ -1,0 +1,21 @@
+ ---
+
+- hosts:	all
+  become:	yes
+  tasks:
+    - name: Install vsftpd
+      apt: name=vsftpd update_cache=yes state=latest
+      ignore_errors: yes
+      notify: start vsftpd
+
+    - name: Install vsftpd
+      yum: name=vsftpd state=latest
+      ignore_errors: yes
+      notify: start vsftpd
+
+  handlers: 
+    - name: start vsftpd
+      service: name=vsftpd enabled=yes state=started
+
+
+
