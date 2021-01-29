@@ -1,9 +1,10 @@
 ---
 
- - hosts: all
-
+ - hosts: ubuntu16
+   become: yes
    tasks:
     - name: remove vsftpd
-      apt: name=vsftpd state=absent
-      when: 
-
+      apt: 
+        name: vsftpd 
+        state: absent
+      when: ansible_facts['ens33']['ipv4']['address'] == "192.168.1.201"
