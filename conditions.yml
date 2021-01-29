@@ -8,3 +8,39 @@
         name: vsftpd 
         state: absent
       when: ansible_facts['ens33']['ipv4']['address'] == "192.168.1.201"
+
+
+# Above yaml file removes vsftpd package on host ubuntu16. ubuntu16 name is defined in /etc/ansible/hosts file and also in /etc/hosts file.
+# In above yaml file the "when" condition may not be good example but I have tried to show how to use gathered fact that are 2 to 3 levels down. 
+
+# Following is the a section of the gathered fact by running following command:
+#
+#     ansible ubuntu16 -m setup 
+#
+
+# ----------------- START of a section of gathered fact --------------------#
+#"ansible_ens33": {
+#            "active": true,
+#            "device": "ens33",
+#            "ipv4": {
+#                "address": "192.168.1.201",
+#                "broadcast": "192.168.1.255",
+#                "netmask": "255.255.255.0",
+#                "network": "192.168.1.0"
+#            },
+#            "ipv6": [
+#                {
+#                    "address": "fe80::20c:29ff:fe80:1fc9",
+#                    "prefix": "64",
+#                    "scope": "link"
+#                }
+#            ],
+#            "macaddress": "00:0c:29:80:1f:c9",
+#            "module": "e1000",
+#            "mtu": 1500,
+#            "pciid": "0000:02:01.0",
+#            "promisc": false,
+#            "speed": 1000,
+#            "type": "ether"
+#        },
+# ----------------- END of a section of gathered fact --------------------#
