@@ -1,6 +1,6 @@
 ---
 
- - hosts: localhost
+ - hosts: mailserver
    become: yes
    tasks:
     - name: Install apache2
@@ -11,3 +11,8 @@
    handlers:
     - name: Start Apache2
       service: name=apache2 state=started
+      
+
+
+# Above playbook installs apache server on "mailserver" host. apt module is in use and after installation the notify statement informs handler to start apache.
+# If "Install apache2" task is not performed then "handlers" section will not execute.
