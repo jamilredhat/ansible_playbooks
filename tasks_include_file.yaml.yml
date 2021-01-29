@@ -1,0 +1,12 @@
+---
+- name: copy files
+  copy: 
+    src: /etc/fstab 
+    dest: /home/admin/fstab.copy 
+    mode: 0777
+
+- name: print message
+  debug: 
+     msg: "I am in task only playbook"
+
+

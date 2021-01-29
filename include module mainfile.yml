@@ -1,0 +1,10 @@
+---
+
+- include: /home/admin/complete_play_include.yaml
+
+- hosts: ubuntu16
+  vars:
+    test_variable: "Hi There"
+  tasks:
+    - include: /home/admin/tasks_include_file.yaml
+

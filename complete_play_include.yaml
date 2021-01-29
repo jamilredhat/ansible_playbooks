@@ -1,0 +1,11 @@
+---
+
+- hosts: ubuntu16
+  become: yes
+  tasks:
+    - name: Ensure we have our own comment added to /etc/services
+      lineinfile:
+        path: /etc/services
+        insertafter: '^nameserver 127.0.0.1'
+        line: 'nameserver 8.8.8.8'
+
